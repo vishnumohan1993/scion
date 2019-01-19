@@ -39,19 +39,19 @@ func main() {
   flag.StringVar(&addressserver, "s", "", "Server SCION Address")
 	flag.Parse()
 
-  //if len(serverAddress) > 0 {
-		//server, err = snet.AddrFromString(serverAddress)
-		//check(err)
-	//} else {
+  for len(serverAddress) > 0 {
+		server, err = snet.AddrFromString(serverAddress)
+		check(err)
+	}// else {
 		//printUsage()
 		//check(fmt.Errorf("Error, server address needs to be specified with -s"))
 	//}
 
-	for  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
-	{
-		server, err = snet.AddrFromString(addressserver)
-		check(err)
-	}
+	//for  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
+	//{
+		//server, err = snet.AddrFromString(addressserver)
+		//check(err)
+	//}
 
 	dispatcherAddr := "/run/shm/dispatcher/default.sock"
 	snet.Init(server.IA, sciond.GetDefaultSCIONDPath(nil), dispatcherAddr)
