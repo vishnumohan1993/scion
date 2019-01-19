@@ -41,7 +41,7 @@ func main() {
 		addressclient string  
 	    addressserver string
 
-		err    error
+		//err    error
 		local  *snet.Addr
 		remote *snet.Addr
 
