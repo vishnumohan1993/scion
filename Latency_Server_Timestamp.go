@@ -39,8 +39,8 @@ func main() {
   flag.StringVar(&addressserver, "s", "", "Server SCION Address")
 	flag.Parse()
 
-  for len(serverAddress) > 0 {
-		server, err = snet.AddrFromString(serverAddress)
+  for len(addressserver) > 0 {
+		server, err = snet.AddrFromString(addressserver)
 		check(err)
 	}// else {
 		//printUsage()
