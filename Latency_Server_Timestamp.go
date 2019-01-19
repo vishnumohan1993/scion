@@ -12,11 +12,11 @@ import (
 	"github.com/scionproto/scion/go/lib/sciond"
 )
 
-//func check(e error) {
-	//if e != nil {
-	//	log.Fatal(e)
-	//}
-//}
+func check(e error) {
+	if e != nil {
+	log.Fatal(e)
+	}
+}
 
 func printUsage() {
 	fmt.Println("\ntimestamp_server -s ServerSCIONAddress")
@@ -50,24 +50,24 @@ func main() {
 	for  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
 	{
 		server, err = snet.AddrFromString(addressserver)
-		//check(err)
+		check(err)
 	}
 
 	dispatcherAddr := "/run/shm/dispatcher/default.sock"
 	snet.Init(server.IA, sciond.GetDefaultSCIONDPath(nil), dispatcherAddr)
 
 	udpConnection, err = snet.ListenSCION("udp4", server)
-	//check(err)
+	check(err)
 
 	bufferreceivePacket := make([]byte, 5000)//packet buffer array of size 5000 made for receiving
 	for {
 		n, addressclient, err := udpConnection.ReadFrom(bufferreceivePacket)
-		//check(err)
+		check(err)
 
 		// Packet received, send back response to same client
 		m := binary.PutVarint(bufferreceivePacket[n:], time.Now().UnixNano())//packet received from source and encodes a uint64 into receivePacket and returns the number of bytes written and the func panic if buffer is too small
 		_, err = udpConnection.WriteTo(bufferreceivePacket[: n+m], addressclient)
-		//check(err)
+		check(err)
 		fmt.Println("Received connection from", addressclient)
 	}
 }
