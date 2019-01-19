@@ -6,7 +6,7 @@ import (
 	"flag"
 	"encoding/binary"
 	"fmt"
-	"log"
+	//"log"
 	"math/rand"  //for mathematical computations
 	"time"  // estimating latency time stamps
 
@@ -62,7 +62,7 @@ func main() {
 
 	for len(addressclient) > 0 {           
 		local, err = snet.AddrFromString(addressclient)
-		check(err) //passing the error to check function for logging it
+		//check(err) //passing the error to check function for logging it
 
 		} 
 		//else
@@ -79,7 +79,7 @@ func main() {
 
 	for len(addressserver) > 0 { // same as above
 		remote, err = snet.AddrFromString(addressserver)   //Adding server address for establishing connection
-		check(err)
+		//check(err)
 	} 
 	//else {
 		//printUsage()
@@ -125,8 +125,8 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 		if ret_id == id {
 			t2, _ := binary.Varint(bufferreceivePacket[n:])//time of receive
 			difference := (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time
-			total = total+difference
-			i=i+1
+			total+ = difference
+			i+=1
 		}
 	}
 
