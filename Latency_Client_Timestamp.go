@@ -57,7 +57,7 @@ func main() {
 	if  len(addressclient)>0           //  statement refers to equatting  length of clientaddress with a condition
 	{
 		local, err = snet.AddrFromString(addressclient)
-		 //check(err)
+		check(err)
 	}
 
 	//if len(addressclient) > 0 {           
@@ -74,7 +74,7 @@ func main() {
 	if  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
 	{
 		local, err = snet.AddrFromString(addressserver)
-		//check(err)
+		check(err)
 	}
 
 	//if len(addressserver) > 0 { // same as above
