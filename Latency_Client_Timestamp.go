@@ -62,7 +62,7 @@ func main() {
 
 	for len(addressclient) > 0 {           
 		local, err = snet.AddrFromString(addressclient)
-		//check(err) //passing the error to check function for logging it
+		check(err) //passing the error to check function for logging it
 
 		} 
 		//else
@@ -79,7 +79,7 @@ func main() {
 
 	for len(addressserver) > 0 { // same as above
 		remote, err = snet.AddrFromString(addressserver)   //Adding server address for establishing connection
-		//check(err)
+		check(err)
 	} 
 	//else {
 		//printUsage()
@@ -90,7 +90,7 @@ dispatcherAddr := "/run/shm/dispatcher/default.sock"
 snet.Init(local.IA, sciond.GetDefaultSCIONDPath(nil), dispatcherAddr)
 
 udpConnection, err = snet.DialSCION("udp4", local, remote)
-	//check(err)
+	check(err)
 
 	bufferreceivePacket := make([]byte, 5000) //packet buffer array of size 5000 made for receiving
 	buffersendPacket := make([]byte, 25) //packet buffer array of size 30 made for sending
@@ -115,10 +115,10 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 
 		t1 := time.Now() //fetching the time sent for later calculations
 		_, err = udpConnection.Write(buffersendPacket)
-		//check(err)
+		check(err)
 
 		_, _, err = udpConnection.ReadFrom(bufferreceivePacket)
-		//check(err)
+		check(err)
 
 		ret_id, n := binary.Uvarint(bufferreceivePacket)
 		//decoding
