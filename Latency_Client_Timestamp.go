@@ -54,17 +54,17 @@ func main() {
 
 
 //Creating Scion UDP socket
-	if  len(addressclient)>0           //  statement refers to equatting  length of clientaddress with a condition
-	{
-		local, err = snet.AddrFromString(addressclient)
-		 check(err)
-	}
-
-	//if len(addressclient) > 0 {           
+	//if  len(addressclient)>0           //  statement refers to equatting  length of clientaddress with a condition
+	//{
 	//	local, err = snet.AddrFromString(addressclient)
-		//check(err) //passing the error to check function for logging it
+	//	 check(err)
+	//}
 
-		//} 
+	if len(addressclient) > 0 {           
+		local, err = snet.AddrFromString(addressclient)
+		check(err) //passing the error to check function for logging it
+
+		} 
 		//else
 		//{
 		//printUsage()
