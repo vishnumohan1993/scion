@@ -100,7 +100,7 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 
 	//calculation starts here
 
-	var final int64 = 0
+	var ans int64 = 0
 
 	i := 0 //iterations
 	j := 0 //limit
@@ -125,7 +125,7 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 		if ret_id == id {
 			t2, _ := binary.Varint(bufferreceivePacket[n:])//time of receive
 			difference := (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time
-			total += difference
+			ans += difference
 			i += 1
 		}
 	}
@@ -134,7 +134,7 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 	//	check(fmt.Errorf("Error, exceeded maximum number of attempts"))
 	//}
 
-	var difference2 float64 = float64(total) / float64(i)//final result
+	var difference2 float64 = float64(ans) / float64(i)//final result
 
 	fmt.Printf("\nClient Address, IP and Port: %s\n", addressclient);
 	fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
