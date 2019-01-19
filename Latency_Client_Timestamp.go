@@ -60,7 +60,7 @@ func main() {
 		//check(err)
 	//}
 
-	if len(addressclient) > 0 {           
+	for len(addressclient) > 0 {           
 		local, err = snet.AddrFromString(addressclient)
 		check(err) //passing the error to check function for logging it
 
@@ -71,16 +71,17 @@ func main() {
 		//check(fmt.Errorf("Error, client address needs to start with -c"))
 	//}
 
-	if  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
-	{
-		local, err = snet.AddrFromString(addressserver)
-		check(err)
-	}
-
-	//if len(addressserver) > 0 { // same as above
-		//remote, err = snet.AddrFromString(addressserver)   //Adding server address for establishing connection
+	//if  len(addressserver)>0           //  statement refers to equatting  length of clientaddress with a condition
+	//{
+		//local, err = snet.AddrFromString(addressserver)
 		//check(err)
-	//} else {
+	//}
+
+	for len(addressserver) > 0 { // same as above
+		remote, err = snet.AddrFromString(addressserver)   //Adding server address for establishing connection
+		check(err)
+	} 
+	//else {
 		//printUsage()
 		//check(fmt.Errorf("Error, server address needs to be specified with -s"))
 	//}
