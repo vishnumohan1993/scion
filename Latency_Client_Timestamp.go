@@ -17,11 +17,11 @@ import (
 
 
 
-//func check(f error) {
-	//if f != nil {
-	//	log.Fatal(f)
-	//}
-//}
+func check(f error) {
+	if f != nil {
+		log.Fatal(f)
+	}
+}
 
 const (
 	count = 15 // iteration count
