@@ -132,7 +132,7 @@ udpConnection, err = snet.DialSCION("udp4", local, remote)
 	//	check(fmt.Errorf("Error, exceeded maximum number of attempts"))
 	//}
 
-	var difference2 float64 = float64(total) / float64(i)//final result
+	var difference2 float64 = float64(ans) / float64(i)//final result
 
 	fmt.Printf("\nClient Address, IP and Port: %s\n", addressclient);
 	fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
