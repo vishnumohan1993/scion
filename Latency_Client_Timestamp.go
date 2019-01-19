@@ -6,7 +6,7 @@ import (
 	"flag"
 	"encoding/binary"
 	"fmt"
-	//"log"
+	"log"
 	"math/rand"  //for mathematical computations
 	"time"  // estimating latency time stamps
 
