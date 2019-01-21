@@ -82,8 +82,8 @@ fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver)
 fmt.Println("Results Obtained as follows:")
 
 // Result is printed in milliseconds, so divide by 1e6 from nano
-var difference float64
+	var ans float64 = float64(difference)
 	
-fmt.Printf("\tRTT - %.3fms\n", difference/1e6)
-fmt.Printf("\tLatency - %.3fms\n", difference/2e6)//since we take RTT as 2x Latency
+fmt.Printf("\tRTT - %.3fms\n", ans/1e6)
+fmt.Printf("\tLatency - %.3fms\n", ans/2e6)//since we take RTT as 2x Latency
 }
