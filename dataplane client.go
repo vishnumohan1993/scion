@@ -79,7 +79,7 @@ seed := rand.NewSource(time.Now().UnixNano())//creating seed with random ids fro
   }
 }
 
-fmt.Println("\nClient Address, IP and Port: %s\n", addressclient)
+fmt.Println("\nClient Address, IP and Port: %s\n",addressclient)
 fmt.Println("\nServer Address, IP and Port: %s\n",addressserver)
 fmt.Println("Results Obtained as follows:")
 
