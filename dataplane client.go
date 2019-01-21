@@ -79,7 +79,7 @@ seed := rand.NewSource(time.Now().UnixNano())//creating seed with random ids fro
   }
 fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient)
 fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver)
-fmt.Println("Results Obtained as follows:")
+fmt.Println("Results Obtained  is as follows:")
 
 // Result is printed in milliseconds, so divide by 1e6 from nano
 	
