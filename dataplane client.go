@@ -75,12 +75,12 @@ seed := rand.NewSource(time.Now().UnixNano())//creating seed with random ids fro
 
   ret_id, n := binary.Uvarint(bufferreceivePacket)
   if ret_id == id {
-   var difference float64 := (float64(t2.UnixNano()) - float64(t1.UnixNano())) // unixnano refers to nanosecond range of time 
+   var difference float64 = (float64(t2.UnixNano()) - float64(t1.UnixNano())) // unixnano refers to nanosecond range of time 
   }
 }
 
-fmt.Printf("\nClient Address, IP and Port: %s\n", addressclient);
-fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
+fmt.Println("\nClient Address, IP and Port: %s\n", addressclient);
+fmt.Println("\nServer Address, IP and Port: %s\n",addressserver);
 fmt.Println("Results Obtained as follows:")
 
 // Result is printed in milliseconds, so divide by 1e6 from nano
