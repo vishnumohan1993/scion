@@ -23,7 +23,7 @@ func exceptioncheck(e1 error) {
 func main() {
 	var (
 		addressclient string  
-	    addressserver string
+	    	addressserver string
 
 		e2    error
 		local  *snet.Addr
@@ -32,7 +32,7 @@ func main() {
 		udpConnection *snet.Conn
 	)
 
-  flag.StringVar(&clientAddress, "c", "", "client SCION Address")
+  	flag.StringVar(&addressclient, "c", "", "client SCION Address")
   	flag.StringVar(&addressserver, "s", "", "server SCION Address")
   	flag.Parse()
 
@@ -82,7 +82,8 @@ fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver)
 fmt.Println("Results Obtained as follows:")
 
 // Result is printed in milliseconds, so divide by 1e6 from nano
-
+var difference float64
+	
 fmt.Printf("\tRTT - %.3fms\n", difference/1e6)
 fmt.Printf("\tLatency - %.3fms\n", difference/2e6)//since we take RTT as 2x Latency
 }
