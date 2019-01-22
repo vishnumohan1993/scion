@@ -87,9 +87,9 @@ func main() {
 
 	//  Path declaration to Remote
 	var entryroute *sciond.PathReplyEntry
-	var choice spathmeta.AppPathSet
+	//var choice spathmeta.AppPathSet
 	//selecting path to destination from available paths b/w src and dest
-	choice = snet.DefNetwork.PathResolver().Query(local.IA, remote.IA)
+	choice := snet.DefNetwork.PathResolver().Query(local.IA, remote.IA)
 
 //printing travel path
 	fmt.Println("Path:", entryroute.Path.String())
