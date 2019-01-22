@@ -27,7 +27,7 @@ func main() {
 	)
 
 	// Fetch arguments from command line
-	flag.StringVar(&serverAddress, "s", "", "Server SCION Address")
+	flag.StringVar(&addressserver, "s", "", "Server SCION Address")
 	flag.Parse()
 
 	if len(addressserver)>0 {           //  statement refers to equatting  length of clientaddress with a condition
