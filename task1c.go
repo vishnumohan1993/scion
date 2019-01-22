@@ -81,7 +81,6 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 			t2, _ := binary.Varint(bufferreceivePacket[n:])//time of receive
 			difference := (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time 
 		}
-	}
 
 	//fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
 	fmt.Printf("\nSource: %s\nDestination: %s\n", addressclient, addressserver);
