@@ -61,7 +61,7 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 	buffersendPacket := make([]byte, 25) //packet buffer array of size 30 made for sending
 
 	seed := rand.NewSource(time.Now().UnixNano())  //creating seed with random ids from new source
-		var difference int64 = 0
+		var ans int64 = 0
 
 		id := rand.New(seed).Uint64() // random number generation with validation when destination sends packet back
 
@@ -75,13 +75,14 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 		_, _, e2 = udpConnection.ReadFrom(bufferreceivePacket)
 		exceptioncheck(e2)
 
-		//ret_id, n := binary.Uvarint(bufferreceivePacket)//calculation starts when the id which retuens back matches to initail sent id
-		// final result is plotted when returning id matches with original one
-		//if ret_id == id {
+		ret_id, n := binary.Uvarint(bufferreceivePacket)//calculation starts when the id which retuens back matches to initail sent id
+		 final result is plotted when returning id matches with original one
+		if ret_id == id {
 			t2, _ := binary.Varint(bufferreceivePacket[n:])//time of receive
-			difference = (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time 
-		//}
-
+			difference := (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time 
+			ans = difference
+		}
+	var result float 64 = float 64(ans)
 	//fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
 	fmt.Printf("\nSource: %s\nDestination: %s\n", addressclient, addressserver);
 	//fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
@@ -89,6 +90,6 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 
 	// Result is printed in milliseconds, so divide by 1e6 from nano
 
-	fmt.Printf("\tRTT - %.3fms\n", difference/1e6)
-	fmt.Printf("\tLatency - %.3fms\n", difference/2e6)//since we take RTT as 2x Latency
+	fmt.Printf("\tRTT - %.3fms\n", result/1e6)
+	fmt.Printf("\tLatency - %.3fms\n", result/2e6)//since we take RTT as 2x Latency
 }
