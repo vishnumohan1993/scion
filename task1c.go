@@ -25,7 +25,7 @@ func main() {
 //required variable declarations with data types
 	var (
 		addressclient string  
-	    addressserver string
+	    	addressserver string
 
 		e2    error
 		local  *snet.Addr
@@ -83,8 +83,9 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 		}
 	}
 
-	fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
-	fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
+	//fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
+	fmt.Printf("\nSource: %s\nDestination: %s\n", addressclient, addressserver);
+	//fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
 	fmt.Println("Results Obtained as follows:")
 
 	// Result is printed in milliseconds, so divide by 1e6 from nano
