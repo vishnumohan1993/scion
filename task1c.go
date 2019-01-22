@@ -46,7 +46,7 @@ func main() {
 	}
 
 	if  len(addressserver) > 0 {           //  statement refers to equatting  length of serveraddress with a condition
-		local, e2 = snet.AddrFromString(addressserver)
+		remote, e2 = snet.AddrFromString(addressserver)
 		exceptioncheck(e2)
 	}
 
