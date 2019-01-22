@@ -75,12 +75,12 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 		_, _, e2 = udpConnection.ReadFrom(bufferreceivePacket)
 		exceptioncheck(e2)
 
-		ret_id, n := binary.Uvarint(bufferreceivePacket)//calculation starts when the id which retuens back matches to initail sent id
+		//ret_id, n := binary.Uvarint(bufferreceivePacket)//calculation starts when the id which retuens back matches to initail sent id
 		// final result is plotted when returning id matches with original one
-		if ret_id == id {
+		//if ret_id == id {
 			t2, _ := binary.Varint(bufferreceivePacket[n:])//time of receive
 			difference := (t2 - t1.UnixNano())  //unixnano refers to nanosecond range of time 
-		}
+		//}
 
 	//fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
 	fmt.Printf("\nSource: %s\nDestination: %s\n", addressclient, addressserver);
