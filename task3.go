@@ -61,8 +61,8 @@ func main() {
 	)
 
 	// Fetch arguments from command line
-	flag.StringVar(&addresssource, "s", "", "Source SCION Address")
-	flag.StringVar(&addressdestination, "d", "", "Destination SCION Address")
+	flag.StringVar(&addresssource, "c", "", "Source SCION Address")
+	flag.StringVar(&addressdestination, "s", "", "Destination SCION Address")
 	flag.Parse()
 
 	// Create the SCION UDP socket
@@ -138,8 +138,8 @@ func main() {
 		}
 	var result float64 = float64(ans)
 
-	fmt.Printf("\nSource:%s\n", sourceAddress);
-	fmt.Printf("\nDestination:%s\n",destinationAddress);
+	fmt.Printf("\nSource:%s\n", addresssource);
+	fmt.Printf("\nDestination:%s\n",addressdestination);
 	fmt.Println("Results Obtained as follows:")
 	// Print in ms, so divide by 1e6 from nano
 	fmt.Printf("\tRTT - %.3fms\n", result/1e6)
