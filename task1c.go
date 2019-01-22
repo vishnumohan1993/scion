@@ -61,7 +61,7 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 	buffersendPacket := make([]byte, 25) //packet buffer array of size 30 made for sending
 
 	seed := rand.NewSource(time.Now().UnixNano())  //creating seed with random ids from new source
-		var difference float64 = 0
+		var difference int64 = 0
 
 		id := rand.New(seed).Uint64() // random number generation with validation when destination sends packet back
 
