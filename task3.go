@@ -106,7 +106,7 @@ func main() {
 	}
 
 	Seed = rand.NewSource(time.Now().UnixNano())//creating seed with random ids from the  new source
-
+	var ans int64 = 0
 	
 	buff := make(common.RawBytes, entryroute.Path.Mtu)
 	//Now path established between src and remote
@@ -133,17 +133,17 @@ func main() {
 
 //calculation is done when the sent id and received matches 
 		if info.Id == id { 
-			 var difference float64 := (float64(t2.UnixNano()) - float64(t1.UnixNano()))
-	
+			 difference := (t2.UnixNano() - t1.UnixNano())
+			ans = difference
 		}
-	}
+	var result float64 = float64(ans)
 
 	fmt.Printf("\nSource:%s\n", sourceAddress);
 	fmt.Printf("\nDestination:%s\n",destinationAddress);
 	fmt.Println("Results Obtained as follows:")
 	// Print in ms, so divide by 1e6 from nano
-	fmt.Printf("\tRTT - %.3fms\n", difference/1e6)
-	fmt.Printf("\tLatency - %.3fms\n", difference/2e6)//since we take RTT as 2x Latency
+	fmt.Printf("\tRTT - %.3fms\n", result/1e6)
+	fmt.Printf("\tLatency - %.3fms\n", result/2e6)//since we take RTT as 2x Latency
 }
 
 // a function to make scmp echo request packet
