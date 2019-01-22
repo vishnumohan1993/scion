@@ -44,7 +44,7 @@ func main() {
 
 
 	if len(addressserver)>0 {           //  statement refers to equatting  length of clientaddress with a condition
-		local, e2 = snet.AddrFromString(addressserver)
+		remote, e2 = snet.AddrFromString(addressserver)
 		exceptioncheck(e2)
 	}
 
@@ -58,7 +58,7 @@ bufferreceivePacket := make([]byte, 5000)//packet buffer array of size 5000 made
 buffersendPacket := make([]byte, 25)//packet buffer array of size 30 made for sending
 
 seed := rand.NewSource(time.Now().UnixNano())//creating seed with random ids from new source
-  var difference float64 = 0
+  var ans int64 = 0
 
   id := rand.New(seed).Uint64()// random number generation with validation when destination sends packet back
 
@@ -76,14 +76,17 @@ seed := rand.NewSource(time.Now().UnixNano())//creating seed with random ids fro
   ret_id, n := binary.Uvarint(bufferreceivePacket)
   if ret_id == id {
    difference := (t2.UnixNano() - t1.UnixNano()) // unixnano refers to nanosecond range of time 
+	ans = difference
   }
-}
+var result float64 = float64(ans)
+	
 fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient)
 fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver)
+fmt.Printf("\nSource: %s\nDestination: %s\n",addressclient,addressserver);
 fmt.Println("Results Obtained  is as follows:")
 
 // Result is printed in milliseconds, so divide by 1e6 from nano
 	
-fmt.Printf("\tRTT - %.3fms\n", difference/1e6)
-fmt.Printf("\tLatency - %.3fms\n", difference/2e6)//since we take RTT as 2x Latency
+fmt.Printf("\tRTT - %.3fms\n", result/1e6)
+fmt.Printf("\tLatency - %.3fms\n", result/2e6)//since we take RTT as 2x Latency
 }
