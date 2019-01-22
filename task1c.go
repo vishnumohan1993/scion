@@ -83,7 +83,7 @@ udpConnection,e2 = snet.DialSCION("udp4", local, remote)
 		}
 	}
 
-	fmt.Printf("\nClient Address, IP and Port: %s\n", addressclient);
+	fmt.Printf("\nClient Address, IP and Port: %s\n",addressclient);
 	fmt.Printf("\nServer Address, IP and Port: %s\n",addressserver);
 	fmt.Println("Results Obtained as follows:")
 
